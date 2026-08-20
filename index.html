@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f28c28">
+<title>Bendita Salgados • Financeiro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><b>🧡 Bendita Salgados</b><button id="menu">☰</button></header>
+<aside id="side">
+<nav>
+<button data-p="dashboard" class="active">📊 Dashboard</button>
+<button data-p="vendas">🛒 Vendas</button>
+<button data-p="gastos">💸 Gastos</button>
+<button data-p="relatorios">📈 Relatórios</button>
+<button data-p="backup">💾 Backup</button>
+</nav>
+</aside>
+<main>
+<div class="top"><div><h1 id="title">Dashboard</h1><small id="sub">Visão geral da empresa</small></div><button class="primary" data-go="vendas">+ Venda</button></div>
+
+<section id="dashboard" class="page active">
+<label class="month">Mês <input id="dm" type="month"></label>
+<div class="cards">
+<div><span>Faturamento</span><strong id="rev">R$ 0,00</strong></div>
+<div><span>Custos</span><strong id="cost">R$ 0,00</strong></div>
+<div><span>Lucro bruto</span><strong id="gross">R$ 0,00</strong></div>
+<div><span>Despesas</span><strong id="exp">R$ 0,00</strong></div>
+<div class="accent"><span>Lucro líquido</span><strong id="net">R$ 0,00</strong></div>
+<div><span>Saldo de caixa</span><strong id="cash">R$ 0,00</strong></div>
+</div>
+<div class="box"><h2>Movimentações recentes</h2><div id="recent"></div></div>
+</section>
+
+<section id="vendas" class="page">
+<div class="box">
+<h2>Nova venda</h2>
+<form id="sf">
+<label>Data<input name="date" type="date" required></label>
+<label>Cliente<input name="client" placeholder="Nome do cliente"></label>
+<label>Produto<input name="product" placeholder="Ex.: Coxinha" required></label>
+<label>Quantidade<input name="qty" type="number" min="1" step="1" required></label>
+<label>Valor unitário<input name="price" type="number" min="0" step=".01" required></label>
+<label>Pagamento<select name="payment"><option>Pix</option><option>Dinheiro</option><option>Cartão</option><option>Transferência</option><option>Outro</option></select></label>
+<label>Recebido?<select name="received"><option>Sim</option><option>Não</option></select></label>
+<button class="primary" type="submit">Salvar venda</button>
+</form>
+</div>
+<div class="box">
+<h2>Vendas</h2>
+<div class="table"><table><thead><tr><th>Data</th><th>Cliente</th><th>Produto</th><th>Qtd.</th><th>Valor un.</th><th>Total</th><th>Pagamento</th><th>Recebido</th><th></th></tr></thead><tbody id="st"></tbody></table></div>
+</div>
+</section>
+
+<section id="gastos" class="page">
+<div class="box">
+<h2>Novo gasto</h2>
+<form id="gf">
+<label>Data<input name="date" type="date" required></label>
+<label>Categoria<select name="cat"><option>Ingredientes</option><option>Embalagens</option><option>Entrega</option><option>Marketing</option><option>Equipamentos</option><option>Aluguel</option><option>Água/Luz</option><option>Taxas</option><option>Impostos</option><option>Outros</option></select></label>
+<label>Descrição<input name="desc" placeholder="Descrição do gasto" required></label>
+<label>Tipo<select name="type"><option>Custo</option><option>Despesa</option></select></label>
+<label>Valor<input name="value" type="number" min="0" step=".01" required></label>
+<label>Pago?<select name="paid"><option>Sim</option><option>Não</option></select></label>
+<button class="primary" type="submit">Salvar gasto</button>
+</form>
+</div>
+<div class="box"><h2>Gastos</h2><div class="table"><table><thead><tr><th>Data</th><th>Categoria</th><th>Descrição</th><th>Tipo</th><th>Valor</th><th>Pago</th><th></th></tr></thead><tbody id="gt"></tbody></table></div></div>
+</section>
+
+<section id="relatorios" class="page">
+<div class="box">
+<div class="report-head"><h2>Fechamento mensal</h2><input id="rm" type="month"></div>
+<div class="report">
+<div><span>Faturamento</span><strong id="rr"></strong></div>
+<div><span>Custos</span><strong id="rc"></strong></div>
+<div><span>Lucro bruto</span><strong id="rg"></strong></div>
+<div><span>Despesas</span><strong id="re"></strong></div>
+<div><span>Lucro líquido</span><strong id="rn"></strong></div>
+<div><span>Saldo de caixa</span><strong id="rCash"></strong></div>
+<div><span>A receber</span><strong id="rReceive"></strong></div>
+<div><span>A pagar</span><strong id="rPay"></strong></div>
+<div><span>Margem líquida</span><strong id="rma"></strong></div>
+</div>
+</div>
+</section>
+
+<section id="backup" class="page">
+<div class="box">
+<h2>Backup</h2>
+<p>Os dados ficam salvos neste navegador. Exporte um backup para guardar uma cópia ou levar os dados para outro aparelho.</p>
+<button class="primary" id="out">Exportar backup</button>
+<label class="secondary">Importar backup<input id="inp" type="file" accept=".json" hidden></label>
+<button class="danger" id="clear">Apagar todos os dados</button>
+</div>
+</section>
+</main>
+<script src="app.js"></script>
+</body></html>
